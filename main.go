@@ -1,6 +1,6 @@
 package main
 
-import "github.com/piotrostr/eth-pdf/cmd"
+import "github.com/piotrostr/pdfeth/cmd"
 
 func main() {
 	cmd.Execute()
