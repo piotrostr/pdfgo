@@ -1,4 +1,4 @@
-module github.com/piotrostr/pdfeth
+module github.com/piotrostr/pdfgo
 
 go 1.18
 
