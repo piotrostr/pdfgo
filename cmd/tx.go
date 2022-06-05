@@ -3,7 +3,7 @@ package cmd
 import (
 	"errors"
 
-	"github.com/piotrostr/pdfeth/pkg/eth"
+	"github.com/piotrostr/pdfgo/pkg/eth"
 	"github.com/spf13/cobra"
 )
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/piotrostr/pdfeth/pkg/server"
+	"github.com/piotrostr/pdfgo/pkg/server"
 	"github.com/spf13/cobra"
 )
 

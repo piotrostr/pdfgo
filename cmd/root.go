@@ -7,9 +7,8 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "pdfeth",
-	Short: "merge pdf's for ethereum",
-	Long:  `Merge pdf's and pay for the computation in ethereum, its going to be on arbitrum and the cost will be equivalent of calling the lambda endpoint.`,
+	Use:   "pdfgo",
+	Short: "merge pdfs, lookup eth txs",
 }
 
 func Execute() {

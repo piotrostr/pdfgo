@@ -13,3 +13,7 @@ pdfgo serve
 This will run a server on `:8080` that serves as a dropbox for pdf files
 
 It is also possible to run stuff with the cli
+
+```bash
+# TODO
+```
