@@ -1,18 +1,18 @@
 # PDF Merger
 
 It is super annoying when you have to pay for merging of your pdf's and the
-websites are flooded with ads.
+websites are flooded with ads. It takes a long time too smh.
 
 This is a very simple app that just merges pdfs.
 
 ```bash
-go install github.com/piotrostr/pdfgo
+go install github.com/piotrostr/pdfgo@v0.0.3
 pdfgo serve
 ```
 
-This will run a server on `:8080` that serves as a dropbox for pdf files
+This will run a server on `localhost:8080` that serves as a dropbox for pdf files.
 
-It is also possible to run stuff with the cli
+It is also possible to run stuff with the cli.
 
 ```cli
 merge pdfs, lookup eth txs
