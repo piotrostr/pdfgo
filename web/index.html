@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PDFETH</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <main>
+      <h1>PDFETH</h1>
+    </main>
+    <div
+      id="drop_zone"
+      ondrop="dropHandler(event);"
+      ondragover="dragOverHandler(event);"
+      ondragleave="dragLeaveHandler(event)"
+    >
+      <p>Drag one or more files to this Drop Zone ...</p>
+    </div>
+    <script>
+      function dropHandler(e) {
+        e.preventDefault();
+
+        if (e.dataTransfer.items) {
+          for (var i = 0; i < e.dataTransfer.items.length; i++) {
+            if (e.dataTransfer.items[i].kind === 'file') {
+              var file = e.dataTransfer.items[i].getAsFile();
+              console.log(file.name);
+            }
+          }
+        } else {
+          for (var i = 0; i < e.dataTransfer.files.length; i++) {
+            console.log(e.dataTransfer.files[i].name);
+          }
+        }
+      }
+
+      function dragOverHandler(e) {
+        e.preventDefault();
+        document.getElementById('drop_zone').style.border = '3px solid green';
+      }
+
+      function dragLeaveHandler(e) {
+        e.preventDefault();
+        document.getElementById('drop_zone').style.border = '3px solid black';
+      }
+    </script>
+  </body>
+</html>

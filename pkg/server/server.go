@@ -40,8 +40,12 @@ func SetupRouter() (r *gin.Engine, err error) {
 
 	r = gin.Default()
 
+	r.LoadHTMLFiles("web/index.html")
+	r.StaticFile("/favicon.ico", "web/favicon.ico")
+	r.StaticFile("/index.css", "web/index.css")
+
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.String(http.StatusOK, "OK\n")
+		ctx.HTML(http.StatusOK, "index.html", nil)
 	})
 
 	r.POST("/merge", func(ctx *gin.Context) {
