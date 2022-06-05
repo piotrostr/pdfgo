@@ -14,6 +14,22 @@ This will run a server on `:8080` that serves as a dropbox for pdf files
 
 It is also possible to run stuff with the cli
 
-```bash
-# TODO
+```cli
+merge pdfs, lookup eth txs
+
+Usage:
+  pdfgo [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  merge       merges the pdfs in the given directory
+  serve       run server
+  tx          gets the tx by hash
+  version     prints the version
+
+Flags:
+  -h, --help   help for pdfgo
+
+Use "pdfgo [command] --help" for more information about a command.
 ```
