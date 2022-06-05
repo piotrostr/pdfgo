@@ -18,26 +18,55 @@
       ondragover="dragOverHandler(event);"
       ondragleave="dragLeaveHandler(event)"
     >
-      <p>Drag one or more files to this Drop Zone ...</p>
+      <p>
+        Drag pdfs into this zone and they will merge and download automatically
+      </p>
+      <p>
+        The files are not stored, they are garbaded collected as soon as they
+        get merged
+      </p>
+      <p>
+        <a href="https://github.com/piotrostr/pdfeth">Source</a>
+      </p>
     </div>
     <script>
       function dropHandler(e) {
         e.preventDefault();
-
+        const files = [];
         if (e.dataTransfer.items) {
           for (var i = 0; i < e.dataTransfer.items.length; i++) {
             if (e.dataTransfer.items[i].kind === 'file') {
               var file = e.dataTransfer.items[i].getAsFile();
-              console.log(file.name);
+              files.push(file);
             }
           }
-        } else {
-          for (var i = 0; i < e.dataTransfer.files.length; i++) {
-            console.log(e.dataTransfer.files[i].name);
+        }
+        if (files.length > 0) {
+          const formData = new FormData();
+          for (let i = 0; i < files.length; i++) {
+            formData.append('upload[]', files[i]);
           }
+          (async function () {
+            const res = await fetch('/merge', {
+              method: 'POST',
+              body: formData,
+            });
+            if (!res.ok) {
+              const text = await res.text();
+              alert('Error: ' + text);
+              return;
+            }
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.display = 'none';
+            a.href = url;
+            a.download = 'merged.pdf';
+            document.body.appendChild(a);
+            a.click();
+          })();
         }
       }
-
       function dragOverHandler(e) {
         e.preventDefault();
         document.getElementById('drop_zone').style.border = '3px solid green';
