@@ -6,7 +6,8 @@ websites are flooded with ads. It takes a long time too smh.
 This is a very simple app that just merges pdfs.
 
 ```bash
-go install github.com/piotrostr/pdfgo@v0.0.3
+git clone https://github.com/piotrostr/pdfgo
+cd pdfgo && go install .
 pdfgo serve
 ```
 
